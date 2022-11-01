@@ -1,0 +1,72 @@
+{% extends './common/base.html'%}
+{% load static %}
+
+
+{% block content%}
+
+
+
+<section class="probootstrap-section probootstrap-section-colored">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-left section-heading probootstrap-animate">
+                <h1>Your Courses</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="probootstrap-section">
+    <div class="row" id="newCourse" style="margin-left: 100px; margin-top: 10px;">
+        <a href="{% url 'courses_add' %}">
+            <button type="button" class="btn btn-primary">Add New Course</button>
+        </a>
+    </div>
+
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            {% for i in course %}
+            <div class="col-md-6">
+
+                <div class="probootstrap-service-2 probootstrap-animate">
+                    <div class="image">
+                        <div class="image-bg"><a href="{% url 'course_single' i.id %}">
+                                <img src="{% static 'img/app_design_logo.jpg' %}"
+                                    alt="Free Bootstrap Template by ProBootstrap.com"></a>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
+                        <h3>{{i.course_name}}</h3>
+                        <p>{{i.description}}</p> <br />
+                        <p>{{i.resource_link}}</p>
+                        <p><a href="{% url 'courses_delete' i.id %}" class="btn btn-primary">Delete Course</a> <span
+                                class="enrolled-count">95% course
+                                completed</span></p>
+                    </div>
+                </div>
+
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<section class="probootstrap-cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Get your admission now!</h2>
+                <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate"
+                    data-animate-effect="fadeInLeft">Enroll</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

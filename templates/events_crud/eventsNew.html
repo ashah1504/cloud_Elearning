@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<section class="container">
+    <div class="container">
+        <form action="{% url 'NewProj' %}" method="post" >
+            {% csrf_token %}
+
+            <label>Name</label>
+            {% render_field form.name %}
+            <br>
+            <label>Descriptions</label>
+            {% render_field form.desc %}
+            <br>
+            <label>Time</label>
+            {% render_field form.time %}
+            <br>
+            <button type="submit">Submit</button>
+
+        </form>
+
+        
+    </div>
+</section>
+ 
+{% endblock %}

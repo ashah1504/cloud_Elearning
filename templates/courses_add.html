@@ -1,0 +1,22 @@
+{% extends './common/base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+{% block content%}
+
+<main class="page projects-page">
+    <section class="portfolio-block projects-cards">
+        <h2 style="text-align: center;">Add Courses</h2>
+        <form action="{% url 'courses_add' %}" method="post">
+            {% csrf_token %}
+            <label>Course Name</label>
+            {% render_field form.course_name %}<br />
+            <label>Course Description</label>
+            {% render_field form.description %}<br />
+            <label>Resource Link</label>
+            {% render_field form.resource_link %}<br />
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</main>
+
+{% endblock %}

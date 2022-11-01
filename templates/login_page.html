@@ -1,0 +1,101 @@
+{% extends './common/base.html'%}
+{% load static %}
+
+{% block log_sign %} active {% endblock %}
+
+{% block content%}
+
+
+
+<section class="probootstrap-section probootstrap-section-colored">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left section-heading probootstrap-animate">
+        <h1 class="mb0">Login Or Sign Up</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="probootstrap-section probootstrap-section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row probootstrap-gutter0">
+          <div class="col-md-4" id="probootstrap-sidebar">
+            <div class="probootstrap-sidebar-inner probootstrap-overlap probootstrap-animate">
+              <h3>Pages</h3>
+              <ul class="probootstrap-side-menu">
+
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'courses' %}">Courses</a></li>
+                <li><a href="{% url 'teachers' %}">Teachers</a></li>
+                <li><a href="{% url 'events' %}">Events</a></li>
+                <li><a href="{% url 'aboutUs' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="active"><a>Login Or Sign Up</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-7 col-md-push-1  probootstrap-animate" id="probootstrap-content">
+            <h2>Login</h2>
+            <p>Login In using the form below.</p>
+
+            <form method="post">
+              {% csrf_token %}
+              <!-- Username input -->
+              <div class="form-outline mb-4">
+                <input type="text" name="name" class="form-control" />
+                <label class="form-label" for="form2Example1">Username</label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" name="password" class="form-control" />
+                <label class="form-label" for="form2Example2">Password</label>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+
+                </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary btn-block mb-4"><a
+                      href="{% url 'reset_password' %}">Forgot password?</a></button>
+
+                </div><br />
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+              <!-- Register buttons -->
+              <div class="text-center"><br />
+                <p>Not a member? Register now!</p>
+                <button type="button" class="btn btn-primary btn-block mb-4"><a
+                    href="{% url 'signup_page' %}">Register</a></button>
+
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="probootstrap-cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Get your admission now!</h2>
+        <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate"
+          data-animate-effect="fadeInLeft">Enroll</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends './common/base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+{% block content%}
+
+<!-- <main class="page projects-page">
+    <section class="portfolio-block projects-cards">
+        <h2 style="text-align: center;">Sign up Form</h2>
+        <form action="{% url 'courses_add' %}" method="post">
+            {% csrf_token %}
+            <label>Course Name</label>
+            {% render_field form.course_name %}<br />
+            <label>Course Description</label>
+            {% render_field form.description %}<br />
+            <label>Resource Link</label>
+            {% render_field form.resource_link %}<br />
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</main> -->
+
+<section class="h-100 h-custom">
+
+    <div class=" card-body p-4 p-md-5">
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
+
+        <form class="px-md-2" method="post">
+            {% csrf_token %}
+            <div class="form-outline mb-4">
+                <input type="text" id="form3Example1q" class="form-control" />
+                <label class="form-label" for="form3Example1q">Name</label>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+
+                    <div class="form-outline datepicker">
+                        <input type="text" class="form-control" id="exampleDatepicker1" />
+                        <label for="exampleDatepicker1" class="form-label">Select a date</label>
+                    </div>
+
+                </div>
+                <!-- <div class="col-md-6 mb-4">
+
+                    <select class="select">
+                        <option value="1" disabled>Sex</option>
+                        <option value="2">Female</option>
+                        <option value="3">Male</option>
+                        <option value="4">Other</option>
+                    </select>
+
+                </div> -->
+            </div>
+
+            <div class="mb-4">
+
+                <select class="select">
+                    <option value="1" disabled>Events</option>
+                    <option value="2">Event 1</option>
+                    <option value="3">Event 2</option>
+                    <option value="4">Event 3</option>
+                </select>
+
+            </div>
+
+            <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                <div class="col-md-6">
+
+                    <div class="form-outline">
+                        <input type="text" id="form3Example1w" class="form-control" />
+                        <label class="form-label" for="form3Example1w">Registration code</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}
